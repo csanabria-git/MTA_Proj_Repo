@@ -17,12 +17,13 @@ TrainTimesDict = {1:os.popen(CommandDict[1]).read(),
                   5:os.popen(CommandDict[5]).read(),
                   6:os.popen(CommandDict[6]).read(),        
                    }
-#Function to Parse all information that the CLI commands in TrainDict spit out
-
+# Function to get current time and parse it into HH:MM (returns a string)
 def GetCurrentTime():
     currenttime = datetime.now()
     currenttime = currenttime.strftime("%H:%M")
     return currenttime
+#Function to Parse all information that the CLI commands in TrainDict spit out
+#As this code stands this successfully gets train,dest,arrival1/2 and the current time into a list for a specific train. Goal is now is to get this all in a loop and populate this same information (for the other 2 trains)
 
 def ParseTrainAndDestination(CommandDict,TrainTimesDict,CurrentTime):
     #parse Train and destination from CLI command that calls from the MTA API
@@ -53,9 +54,31 @@ def ParseTrainAndDestination(CommandDict,TrainTimesDict,CurrentTime):
     TrainTuple=(train,destination,arrival1,arrival2,CurrentTime)
     #put all the variables as part of this function into a tuple and output it to a list to see if it prints
     return TrainTuple
-ParsedTrainList= (ParseTrainAndDestination(CommandDict[1],TrainTimesDict[1],GetCurrentTime())
+ParsedTrainList= (ParseTrainAndDestination(CommandDict[1],TrainTimesDict[1],GetCurrentTime()))
 print(ParsedTrainList)
-#As this code stands this successfully gets train,dest,arrival1/2 and the current time into a list for a specific train. Goal is now is to get this all in a loop and populate this same information (for the other 2 trains)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 """def MinutesToNextTrain(TrainTimes,currenttime):
     TrainTimes=TrainTimes.replace(" ", "")
 

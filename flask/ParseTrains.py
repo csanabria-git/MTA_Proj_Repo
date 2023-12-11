@@ -1,4 +1,5 @@
 import os
+#Test
 #Since I would need to run the same 6 commands for 36st station trains and they remain constsnat this line is to put all the commands into a dict
 CommandDict={1:"underground stops N --api-key Yes7tAol8sKfqd1cGfF26W1C2nWTFiZ1mM8Z5uG8 | grep R36N",
              2:"underground stops N --api-key Yes7tAol8sKfqd1cGfF26W1C2nWTFiZ1mM8Z5uG8 | grep R36S",
@@ -6,7 +7,6 @@ CommandDict={1:"underground stops N --api-key Yes7tAol8sKfqd1cGfF26W1C2nWTFiZ1mM
              4:"underground stops D --api-key Yes7tAol8sKfqd1cGfF26W1C2nWTFiZ1mM8Z5uG8 | grep R36S",
              5:"underground stops R --api-key Yes7tAol8sKfqd1cGfF26W1C2nWTFiZ1mM8Z5uG8 | grep R36N",
              6:"underground stops R --api-key Yes7tAol8sKfqd1cGfF26W1C2nWTFiZ1mM8Z5uG8 | grep R36S",
-             "Current Time":"date +%H:%M"
              }
 #This dict takes all the text from the commands and actually runs them in terminal and this is what sends back the train station ID + all the times i.e R36N 12:17 12:26 12:37 12:43 12:52 12:58 13:08 13:17 13:23 13:32
 TrainTimesDict = {1:os.popen(CommandDict[1]).read(),
@@ -14,11 +14,13 @@ TrainTimesDict = {1:os.popen(CommandDict[1]).read(),
                   3:os.popen(CommandDict[3]).read(),
                   4:os.popen(CommandDict[4]).read(),
                   5:os.popen(CommandDict[5]).read(),
-                  6:os.popen(CommandDict[6]).read(),
-                  "Current Time":os.popen(CommandDict["Current Time"]).read()
+                  6:os.popen(CommandDict[6]).read(),        
                    }
-#Test
 #Function to Parse all information that the CLI commands in TrainDict spit out
+
+
+
+ #"Current Time":os.popen(CommandDict["Current Time"]).read() -- "Current Time":"date +%H:%M"
 def ParseTrainAndDestination(CommandDict,TrainTimesDict,CurrentTime):
     #parse Train and destination from CLI command that calls from the MTA API
     if "stops N" in CommandDict:
@@ -51,7 +53,6 @@ def ParseTrainAndDestination(CommandDict,TrainTimesDict,CurrentTime):
 ParsedTrainList= (ParseTrainAndDestination(CommandDict[1],TrainTimesDict[1],TrainTimesDict["Current Time"]))
 print(ParsedTrainList)
 #As this code stands this successfully gets train,dest,arrival1/2 and the current time into a list for a specific train. Goal is now is to get this all in a loop and populate this same information (for the other 2 trains)
-#Testing of test branch
 """def MinutesToNextTrain(TrainTimes,currenttime):
     TrainTimes=TrainTimes.replace(" ", "")
 

@@ -66,7 +66,7 @@ def ParseTrainAndDestination(CommandDict,TrainTimesDict,CurrentTime):
 for i in CommandDict:
     ParsedTrainDict[i].append(ParseTrainAndDestination(CommandDict[i],TrainTimesDict[i],GetCurrentTime()))
     print(ParsedTrainDict[i])
-
+#All the variables print out but this can probably be organized even better. If I need to extract any info on the train I need to re parse the information yet again. Need to re think the data structure this all gets put into
 
 
 

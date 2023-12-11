@@ -17,7 +17,7 @@ TrainTimesDict = {1:os.popen(CommandDict[1]).read(),
                   5:os.popen(CommandDict[5]).read(),
                   6:os.popen(CommandDict[6]).read(),        
                    }
-# Function to get current time and parse it into HH:MM (returns a string)
+# This dict will stores a particular train's destination, arrival times, and the current time. This line is to initialize it
 ParsedTrainDict = {1:[],
                    2:[],
                    3:[],
@@ -25,6 +25,7 @@ ParsedTrainDict = {1:[],
                    5:[],
                    6:[],
                    }
+# Function to get current time and parse it into HH:MM (returns a string)
 def GetCurrentTime():
     currenttime = datetime.now()
     currenttime = currenttime.strftime("%H:%M")

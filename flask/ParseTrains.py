@@ -71,23 +71,6 @@ for i in CommandDict:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 """def MinutesToNextTrain(TrainTimes,currenttime):
     TrainTimes=TrainTimes.replace(" ", "")
 

@@ -1,6 +1,5 @@
 import os
 from datetime import datetime
-#Test
 #Since I would need to run the same 6 commands for 36st station trains and they remain constsnat this line is to put all the commands into a dict
 CommandDict={1:"underground stops N --api-key Yes7tAol8sKfqd1cGfF26W1C2nWTFiZ1mM8Z5uG8 | grep R36N",
              2:"underground stops N --api-key Yes7tAol8sKfqd1cGfF26W1C2nWTFiZ1mM8Z5uG8 | grep R36S",

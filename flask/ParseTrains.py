@@ -30,7 +30,6 @@ def GetCurrentTime():
     currenttime = currenttime.strftime("%H:%M")
     return currenttime
 #Function to Parse all information that the CLI commands in TrainDict spit out
-
 def ParseTrainAndDestination(CommandDict,TrainTimesDict,CurrentTime):
     #parse Train and destination from CLI command that calls from the MTA API
     if "stops N" in CommandDict:
@@ -67,26 +66,20 @@ def ParseTrainAndDestination(CommandDict,TrainTimesDict,CurrentTime):
                "Current Time":CurrentTime,
                }
     return TrainDict
-for i in CommandDict:
-    MasterDict.update({i:ParseTrainAndDestination(CommandDict[i],TrainTimesDict[i],GetCurrentTime())})
-# I have all info in MasterDict now. Next step is to parse times and compare Arrival 1 and 2 to current time and populate Master Dict
-
-
-
-"""def MinutesToNextTrain(TrainTimes,currenttime):
-    TrainTimes=TrainTimes.replace(" ", "")
-
+#Function to pull arrival times of a train from MasterDict and compare them again the currentime
+def MinutesToNextTrain(arrival1,currenttime):
     a1Hours = int(arrival1[0:2])
     a1Minutes = int(arrival1[3:5])
-    a2Hours = int(arrival2[0:2])
-    a2Minutes = int(arrival2[3:5])
     cHours = int(currenttime[0:2])
     cMinutes = int(currenttime[3:5])
     OneHour = 60
     if a1Hours == cHours:
-        return (aMinutes - bMinutes)
+        return (a1Minutes - cMinutes)
     else:
-        return (aMinutes + OneHour - bMinutes)"""
+        return (a1Minutes + OneHour - cMinutes)
+#For loop to populate MasterDict with all parsed train info
+for i in CommandDict:
+    MasterDict.update({i:ParseTrainAndDestination(CommandDict[i],TrainTimesDict[i],GetCurrentTime())})
+#    MasterDict.update([i]:{"Next Train":MinutesToNextTrain(MasterDict[i]:{"Arrival 1"})})
 
-
-
+print(MasterDict[1]["Arrival 2"])

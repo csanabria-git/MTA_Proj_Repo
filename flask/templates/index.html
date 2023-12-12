@@ -1,11 +1,7 @@
-<!-- templates/for_loop.html -->
 
-<h1>Loops in Jinja2</h1>
-<h2>For loop</h2>
-<h3>Planets in Our Solar System</h3>
-
+<h1>Trains</h1>
 <ul>
-    {% for i in planets %}
-        <li>{{ i }}</li>
+    {% for key, value in trains.items() %}
+        <li> {{ value }}</li>
     {% endfor %}
 </ul>

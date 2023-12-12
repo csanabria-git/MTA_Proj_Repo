@@ -94,12 +94,11 @@ from flask import Flask
 
 app = Flask(__name__)
 
-i = 1
 @app.route('/')
 def my_route():
+  i = 2
   train = MasterDict[i]["Train"]
   destination= MasterDict[i]["Dst"]
   nexttrain = MasterDict[i]["Train 1"]
-
   return render_template('index.html', train=train, destination=destination, nexttrain=nexttrain)
                                  

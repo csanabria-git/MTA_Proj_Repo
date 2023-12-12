@@ -97,6 +97,9 @@ app = Flask(__name__)
 i = 1
 @app.route('/')
 def my_route():
-  content = (MasterDict[i]["Train"],MasterDict[i]["Dst"],MasterDict[i]["Train 1"])
-  return render_template('index.html', content=content)
+  train = MasterDict[i]["Train"]
+  destination= MasterDict[i]["Dst"]
+  nexttrain = MasterDict[i]["Train 1"]
+
+  return render_template('index.html', train=train, destination=destination, nexttrain=nexttrain)
                                  

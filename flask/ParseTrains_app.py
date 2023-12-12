@@ -29,6 +29,7 @@ MasterDict = {1:[],
                    6:[],
                    }
 # Function to get current time and parse it into HH:MM (returns a string)
+WebDict = {}
 def GetCurrentTime():
     currenttime = datetime.now()
     currenttime = currenttime.strftime("%H:%M")
@@ -95,6 +96,12 @@ from flask import Flask
 app = Flask(__name__)
 
 @app.route('/')
-def render_loops_for_dict():
-    return render_template("index.html", trains=MasterDict)
+def my_route():
+  for i in MasterDict:
+    train = str(MasterDict[i]["Train"])
+    destination= str(MasterDict[i]["Dst"])
+    nexttrain = str(MasterDict[i]["Train 1"])
+    content = train + " " + destination + " " + nexttrain
+    WebDict.update({i:content})
+  return render_template('index.html', trains=WebDict)
                                  

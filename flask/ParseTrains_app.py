@@ -97,6 +97,4 @@ app = Flask(__name__)
 i = 1
 @app.route('/')
 def my_route():
-  content = {'thing':'some stuff',
-             'other':'more stuff'}
-  return render_template('template.html', content=content)        
+  return render_template('index.html', content=MasterDict[i])        

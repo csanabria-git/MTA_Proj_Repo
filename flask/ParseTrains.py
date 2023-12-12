@@ -56,30 +56,32 @@ def ParseTrainAndDestination(CommandDict,TrainTimesDict,CurrentTime):
     # Parse arrival1 and 2 from TrainTimes string
     arrival1=TrainTimes[4:9]
     arrival2=TrainTimes[9:14]
-    #TrainTuple=(train,destination,arrival1,arrival2,CurrentTime)
-    #put all the variables as part of this function into a tuple and output it to a list to see if it prints
-    #return TrainTuple
-    TrainDict={"Train":train,
-               "Destination":destination,
-               "Arrival 1":arrival1,
-               "Arrival 2":arrival2,
-               "Current Time":CurrentTime,
-               }
-    return TrainDict
-#Function to pull arrival times of a train from MasterDict and compare them again the currentime
-def MinutesToNextTrain(arrival1,currenttime):
+
     a1Hours = int(arrival1[0:2])
     a1Minutes = int(arrival1[3:5])
-    cHours = int(currenttime[0:2])
-    cMinutes = int(currenttime[3:5])
+    a2Hours = int(arrival2[0:2])
+    a2Minutes = int(arrival2[3:5])
+    cHours = int(CurrentTime[0:2])
+    cMinutes = int(CurrentTime[3:5])
     OneHour = 60
     if a1Hours == cHours:
-        return (a1Minutes - cMinutes)
+        FirstTrain = a1Minutes - cMinutes
     else:
-        return (a1Minutes + OneHour - cMinutes)
+        FirstTrain = a1Minutes + OneHour - cMinutes
+    if a2Hours == cHours:
+        SecondTrain = a2Minutes -cMinutes
+    else:  
+        SecondTrain = a2Minutes + OneHour - cMinutes
+    TrainDict={"Train":train,
+               "Dst":destination,
+               "A1":arrival1,
+               "A2":arrival2,
+               "CTime":CurrentTime,
+               "Train 1":FirstTrain,
+               "Train 2":SecondTrain
+               }
+    return TrainDict
 #For loop to populate MasterDict with all parsed train info
 for i in CommandDict:
     MasterDict.update({i:ParseTrainAndDestination(CommandDict[i],TrainTimesDict[i],GetCurrentTime())})
-#    MasterDict.update([i]:{"Next Train":MinutesToNextTrain(MasterDict[i]:{"Arrival 1"})})
-
-print(MasterDict[1]["Arrival 2"])
+    print(MasterDict[i])

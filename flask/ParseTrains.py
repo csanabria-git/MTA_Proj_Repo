@@ -73,7 +73,6 @@ for i in CommandDict:
 # I have all info in MasterDict now. Next step is to parse times and compare Arrival 1 and 2 to current time and populate Master Dict
 
 
-
 """def MinutesToNextTrain(TrainTimes,currenttime):
     TrainTimes=TrainTimes.replace(" ", "")
 

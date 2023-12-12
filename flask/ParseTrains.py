@@ -17,7 +17,7 @@ TrainTimesDict = {1:os.popen(CommandDict[1]).read(),
                   6:os.popen(CommandDict[6]).read(),        
                    }
 # This dict will stores a particular train's destination, arrival times, and the current time. This line is to initialize it
-ParsedTrainDict = {1:[],
+MasterDict = {1:[],
                    2:[],
                    3:[],
                    4:[],
@@ -60,13 +60,16 @@ def ParseTrainAndDestination(CommandDict,TrainTimesDict,CurrentTime):
     #TrainTuple=(train,destination,arrival1,arrival2,CurrentTime)
     #put all the variables as part of this function into a tuple and output it to a list to see if it prints
     #return TrainTuple
-    return train + " " + destination + " " + arrival1 + " " +  arrival2 + " " + CurrentTime
-
+    TrainDict={"Train":train,
+               "Destination":destination,
+               "Arrival 1":arrival1,
+               "Arrival 2":arrival2,
+               "Current Time":CurrentTime,
+               }
+    return TrainDict
 for i in CommandDict:
-    ParsedTrainDict[i].append(ParseTrainAndDestination(CommandDict[i],TrainTimesDict[i],GetCurrentTime()))
-    print(ParsedTrainDict[i])
-#All the variables print out but this can probably be organized even better. If I need to extract any info on the train I need to re parse the information yet again. Need to re think the data structure this all gets put into
-
+    MasterDict.update({i:ParseTrainAndDestination(CommandDict[i],TrainTimesDict[i],GetCurrentTime())})
+# I have all info in MasterDict now. Next step is to parse times and compare Arrival 1 and 2 to current time and populate Master Dict
 
 
 

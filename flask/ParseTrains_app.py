@@ -88,15 +88,17 @@ def ParseTrainAndDestination(CommandDict,TrainTimesDict,CurrentTime):
 #For loop to populate MasterDict with all parsed train info
 for i in CommandDict:
     MasterDict.update({i:ParseTrainAndDestination(CommandDict[i],TrainTimesDict[i],GetCurrentTime())})
-    print(MasterDict[i])
 
-    
 #Flask web app
-"""from flask import Flask
+from flask import Flask
 
 app = Flask(__name__)
 
-
 @app.route('/')
-def TrainDisplay(train=MasterDict[1]["Train"],destination=MasterDict[1]["Dst"],MinsToTrain1=MasterDict[1]["Train 1"],MinsToTrain2=MasterDict[1]["Train 2"]):
-    return render_template('index.html',train=train,destination=destination,MinsToTrain1=MinsToTrain1)"""
+def my_route():
+  i = 2
+  train = MasterDict[i]["Train"]
+  destination= MasterDict[i]["Dst"]
+  nexttrain = MasterDict[i]["Train 1"]
+  return render_template('index.html', train=train, destination=destination, nexttrain=nexttrain)
+                                 

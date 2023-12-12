@@ -95,10 +95,6 @@ from flask import Flask
 app = Flask(__name__)
 
 @app.route('/')
-def my_route():
-  i = 2
-  train = MasterDict[i]["Train"]
-  destination= MasterDict[i]["Dst"]
-  nexttrain = MasterDict[i]["Train 1"]
-  return render_template('index.html', train=train, destination=destination, nexttrain=nexttrain)
+def render_loops_for():
+    return render_template("index.html", planets=MasterDict)
                                  

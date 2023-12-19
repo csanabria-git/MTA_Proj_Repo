@@ -4,7 +4,8 @@ from flask import Flask, render_template, request
 import sys
 from subprocess import Popen, PIPE
 
-#Since I would need to run the same 6 commands for 36st station trains and they remain constsnat this line is to put all the commands into a dict
+#Since I would need to run the same 6 commands for 36st station trains 
+# and they remain constant this line is to put all the commands into a dict
 CommandDict={1:"underground stops N --api-key Yes7tAol8sKfqd1cGfF26W1C2nWTFiZ1mM8Z5uG8 | grep R36N",
              2:"underground stops N --api-key Yes7tAol8sKfqd1cGfF26W1C2nWTFiZ1mM8Z5uG8 | grep R36S",
              3:"underground stops D --api-key Yes7tAol8sKfqd1cGfF26W1C2nWTFiZ1mM8Z5uG8 | grep R36N",
@@ -12,7 +13,8 @@ CommandDict={1:"underground stops N --api-key Yes7tAol8sKfqd1cGfF26W1C2nWTFiZ1mM
              5:"underground stops R --api-key Yes7tAol8sKfqd1cGfF26W1C2nWTFiZ1mM8Z5uG8 | grep R36N",
              6:"underground stops R --api-key Yes7tAol8sKfqd1cGfF26W1C2nWTFiZ1mM8Z5uG8 | grep R36S",
              }
-#This dict takes all the text from the commands and actually runs them in terminal and this is what sends back the train station ID + all the times i.e R36N 12:17 12:26 12:37 12:43 12:52 12:58 13:08 13:17 13:23 13:32
+#This dict takes all the text from the commands and actually runs them in terminal 
+#and this is what sends back the train station ID + all the times i.e R36N 12:17 12:26 12:37 12:43 12:52 12:58 13:08 13:17 13:23 13:32
 TrainTimesDict = {1:os.popen(CommandDict[1]).read(),
                   2:os.popen(CommandDict[2]).read(),
                   3:os.popen(CommandDict[3]).read(),
@@ -20,7 +22,6 @@ TrainTimesDict = {1:os.popen(CommandDict[1]).read(),
                   5:os.popen(CommandDict[5]).read(),
                   6:os.popen(CommandDict[6]).read(),        
                    }
-# This dict will stores a particular train's destination, arrival times, and the current time. This line is to initialize it
 MasterDict = {1:[],
                    2:[],
                    3:[],
@@ -28,8 +29,9 @@ MasterDict = {1:[],
                    5:[],
                    6:[],
                    }
-# Function to get current time and parse it into HH:MM (returns a string)
+# This dict will stores a particular train's destination, arrival times, and the current time. This line is to initialize it
 WebDict = {}
+# Function to get current time and parse it into HH:MM (returns a string)
 def GetCurrentTime():
     currenttime = datetime.now()
     currenttime = currenttime.strftime("%H:%M")

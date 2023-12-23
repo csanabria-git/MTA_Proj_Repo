@@ -1,6 +1,9 @@
 import os
 from datetime import datetime
-#Test
+from flask import Flask, render_template, request
+import sys
+from subprocess import Popen, PIPE
+
 #Since I would need to run the same 6 commands for 36st station trains and they remain constsnat this line is to put all the commands into a dict
 CommandDict={1:"underground stops N --api-key Yes7tAol8sKfqd1cGfF26W1C2nWTFiZ1mM8Z5uG8 | grep R36N",
              2:"underground stops N --api-key Yes7tAol8sKfqd1cGfF26W1C2nWTFiZ1mM8Z5uG8 | grep R36S",
@@ -26,12 +29,12 @@ MasterDict = {1:[],
                    6:[],
                    }
 # Function to get current time and parse it into HH:MM (returns a string)
+WebDict = {}
 def GetCurrentTime():
     currenttime = datetime.now()
     currenttime = currenttime.strftime("%H:%M")
     return currenttime
 #Function to Parse all information that the CLI commands in TrainDict spit out
-
 def ParseTrainAndDestination(CommandDict,TrainTimesDict,CurrentTime):
     #parse Train and destination from CLI command that calls from the MTA API
     if "stops N" in CommandDict:
@@ -58,35 +61,31 @@ def ParseTrainAndDestination(CommandDict,TrainTimesDict,CurrentTime):
     # Parse arrival1 and 2 from TrainTimes string
     arrival1=TrainTimes[4:9]
     arrival2=TrainTimes[9:14]
-    #TrainTuple=(train,destination,arrival1,arrival2,CurrentTime)
-    #put all the variables as part of this function into a tuple and output it to a list to see if it prints
-    #return TrainTuple
-    TrainDict={"Train":train,
-               "Destination":destination,
-               "Arrival 1":arrival1,
-               "Arrival 2":arrival2,
-               "Current Time":CurrentTime,
-               }
-    return TrainDict
-for i in CommandDict:
-    MasterDict.update({i:ParseTrainAndDestination(CommandDict[i],TrainTimesDict[i],GetCurrentTime())})
-# I have all info in MasterDict now. Next step is to parse times and compare Arrival 1 and 2 to current time and populate Master Dict
-
-
-"""def MinutesToNextTrain(TrainTimes,currenttime):
-    TrainTimes=TrainTimes.replace(" ", "")
 
     a1Hours = int(arrival1[0:2])
     a1Minutes = int(arrival1[3:5])
     a2Hours = int(arrival2[0:2])
     a2Minutes = int(arrival2[3:5])
-    cHours = int(currenttime[0:2])
-    cMinutes = int(currenttime[3:5])
+    cHours = int(CurrentTime[0:2])
+    cMinutes = int(CurrentTime[3:5])
     OneHour = 60
     if a1Hours == cHours:
-        return (aMinutes - bMinutes)
+        FirstTrain = a1Minutes - cMinutes
     else:
-        return (aMinutes + OneHour - bMinutes)"""
-
-
-
+        FirstTrain = a1Minutes + OneHour - cMinutes
+    if a2Hours == cHours:
+        SecondTrain = a2Minutes -cMinutes
+    else:  
+        SecondTrain = a2Minutes + OneHour - cMinutes
+    TrainDict={"Train":train,
+               "Dst":destination,
+               "A1":arrival1,
+               "A2":arrival2,
+               "CTime":CurrentTime,
+               "Train 1":FirstTrain,
+               "Train 2":SecondTrain
+               }
+    return TrainDict
+#For loop to populate MasterDict with all parsed train info
+for i in CommandDict:
+    MasterDict.update({i:ParseTrainAndDestination(CommandDict[i],TrainTimesDict[i],GetCurrentTime())})

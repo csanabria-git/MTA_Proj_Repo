@@ -42,13 +42,13 @@ def ParseTrainAndDestination(CommandDict,TrainTimesDict,CurrentTime):
         if "R36N" in CommandDict:
             destination = "Astoria-Ditmars Blvd"
         if "R36S" in CommandDict:
-            destination = "ConeyIsland-Stillwell Ave"
+            destination = "Coney Island-Stillwell Ave"
     if "stops D" in CommandDict:
         train = 'D'
         if "R36N" in CommandDict:
             destination = "Norwood - 205 St"
         if "R36S" in CommandDict:
-            destination = "ConeyIsland-Stillwell Ave"
+            destination = "Coney Island-Stillwell Ave"
     if "stops R" in CommandDict:
         train = 'R'
         if "R36N" in CommandDict:
@@ -82,8 +82,8 @@ def ParseTrainAndDestination(CommandDict,TrainTimesDict,CurrentTime):
                "A1":arrival1,
                "A2":arrival2,
                "CTime":CurrentTime,
-               "Train 1":FirstTrain,
-               "Train 2":SecondTrain
+               "Train1":FirstTrain,
+               "Train2":SecondTrain
                }
     return TrainDict
 #For loop to populate MasterDict with all parsed train info
@@ -97,11 +97,4 @@ app = Flask(__name__)
 
 @app.route('/')
 def my_route():
-
-  for i in MasterDict:
-    train = str(MasterDict[i]["Train"])
-    destination= str(MasterDict[i]["Dst"])
-    nexttrain = str(MasterDict[i]["Train 1"])
-    content = train + " " + destination + " " + nexttrain
-    WebDict.update({i:content})
-  return render_template('index.html', trains=WebDict)
+  return render_template('index.html', trains=MasterDict)

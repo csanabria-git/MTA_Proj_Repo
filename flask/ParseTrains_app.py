@@ -99,7 +99,6 @@ app = Flask(__name__)
 
 @app.route('/')
 def my_route():
-
   for i in MasterDict:
     train = str(MasterDict[i]["Train"])
     destination= str(MasterDict[i]["Dst"])

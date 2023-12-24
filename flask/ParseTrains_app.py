@@ -29,7 +29,6 @@ MasterDict = {1:[],
                    6:[],
                    }
 # Function to get current time and parse it into HH:MM (returns a string)
-WebDict = {}
 def GetCurrentTime():
     currenttime = datetime.now()
     currenttime = currenttime.strftime("%H:%M")

@@ -1,7 +1,9 @@
-
-<h1>36 St Station Trains</h1>
-<ul>
+<head>    <link rel="stylesheet" href=./static/css/index.css>
+</head>
+<title>36 St Station Trains</title>
+<h1>
     {% for key, value in trains.items() %}
-        <h1>{{ value.Train }} {{ value.Dst }} {{ value.Train1 }} minutes  </h1>
+       <p> {{ value.Train }} {{ value.Dst }} {{ value.Train1 }} minutes  </p>
     {% endfor %}
-</ul>
+</h1>
+<p>Take the <span class="subway-icon mta-yellow">Q</span> train to the Prospect Park station</p>

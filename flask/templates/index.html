@@ -1,9 +1,9 @@
-<head ><link href="./static/css/index.css" rel="stylesheet" />
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
 
 <ul>
     {% for key, value in trains.items() %}
         <p>{{ value.Train }} {{ value.Dst }} {{ value.Train1 }} minutes  </p>
     {% endfor %}
 </ul>
-<p>testing</p>
+<p>Testing</p>
 </head>

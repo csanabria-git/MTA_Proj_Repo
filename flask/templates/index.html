@@ -1,9 +1,14 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
 
 <ul>
-    {% for key, value in trains.items() %}
-        <ul><p></p><span class="subway-icon mta-yellow">{{ value.Train }}</span></p> {{ value.Dst }} {{ value.Train1 }} minutes  </ul>
+    {% for key, value in NTrains.items() %}
+        <ul><span class="subway-icon mta-yellow">{{ value.Train }}</span> <div class="street-sign">{{ value.Dst }}</div>{{ value.Train1 }} minutes  </ul>
+    {% endfor %}
+    {% for key, value in DTrains.items() %}
+    <ul><span class="subway-icon mta-orange">{{ value.Train }}</span> {{ value.Dst }} {{ value.Train1 }} minutes  </ul>
+    {% endfor %}
+    {% for key, value in RTrains.items() %}
+    <ul><span class="subway-icon mta-yellow">{{ value.Train }}</span> {{ value.Dst }} {{ value.Train1 }} minutes  </ul>
     {% endfor %}
 </ul>
-<p>Testing</p>
 </head>

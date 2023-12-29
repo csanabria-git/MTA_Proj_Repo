@@ -21,13 +21,10 @@ TrainTimesDict = {1:os.popen(CommandDict[1]).read(),
                   6:os.popen(CommandDict[6]).read(),        
                    }
 # This dict will stores a particular train's destination, arrival times, and the current time. This line is to initialize it
-MasterDict = {1:[],
-                   2:[],
-                   3:[],
-                   4:[],
-                   5:[],
-                   6:[],
-                   }
+MasterDict = {1:[],2:[],3:[],4:[],5:[],6:[],}
+NTrainDict = {1:[],2:[]}
+DTrainDict = {1:[],2:[]}
+RTrainDict = {1:[],2:[]}
 # Function to get current time and parse it into HH:MM (returns a string)
 def GetCurrentTime():
     currenttime = datetime.now()
@@ -88,10 +85,17 @@ def ParseTrainAndDestination(CommandDict,TrainTimesDict,CurrentTime):
 #For loop to populate MasterDict with all parsed train info
 for i in CommandDict:
     MasterDict.update({i:ParseTrainAndDestination(CommandDict[i],TrainTimesDict[i],GetCurrentTime())})
-
+# Populate individual train Dicts
+NTrainDict[1] = MasterDict[1]
+NTrainDict[2] = MasterDict[2]
+DTrainDict[1] = MasterDict[3]
+DTrainDict[2] = MasterDict[4]
+RTrainDict[1] = MasterDict[5]
+RTrainDict[2] = MasterDict[6]
 #Flask web app
 from flask import Flask
 app = Flask(__name__)
 @app.route('/')
 def my_route():
-  return render_template('index.html', trains=MasterDict)
+  return render_template('index.html', NTrains=NTrainDict, DTrains=DTrainDict,RTrains=RTrainDict)
+#Next step is to figure out how to get street sign for the train destinations 

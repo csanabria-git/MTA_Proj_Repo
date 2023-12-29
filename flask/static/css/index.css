@@ -92,3 +92,45 @@
 .mta-brown::before {
   background-color: #573208;
 }
+:root{
+  --green:#145203;
+  --blue:#0561ad;
+  --yellow:#FDDA16;
+  --white:#FFFFFF;
+  
+  --superscript:"ST";
+}
+.street-sign{
+  --sign-color:var(--green);
+  margin:40vh auto;
+  white-space:nowrap;
+  font-size:min(15vh,60px);
+  background-color:var(--sign-color);
+  width:min-content;
+  color:white;
+  font-family:sans-serif;
+  font-weight:bold;
+  padding:0.25em 0.25em 0.25em 0.5em;
+  border-radius:0.25em;
+  box-shadow:0 0 0 0.1em white, 0 0 0 calc(0.1em + 1px) var(--sign-color), 0.2em 0.2em 0.1em rgba(0,0,0,0.25);
+}
+
+.street-sign::after{
+  content:var(--superscript);
+  font-size:0.5em;
+  vertical-align:super;
+  margin-left:0.5em;
+}
+
+.street-sign.inverted{
+  color:black;
+  box-shadow:0 0 0 0.1em black, 0 0 0 calc(0.1em + 1px) var(--sign-color), 0.2em 0.2em 0.1em rgba(0,0,0,0.25);
+}
+
+.inspired{
+  font-size:0.75em;
+  position:absolute;
+  bottom:0.2em;
+  right:1vw;
+  font-family:sans-serif;
+}

@@ -22,13 +22,7 @@ TrainTimesDict = {1:os.popen(CommandDict[1]).read(),
                    }
 # This dict will stores a particular train's destination, arrival times, and the current time. This line is to initialize it
 #Individual Train Dicts
-MasterDict = {1:[],
-                   2:[],
-                   3:[],
-                   4:[],
-                   5:[],
-                   6:[],
-                   }
+MasterDict = {1:[],2:[],3:[],4:[],5:[],6:[], }
 NTrainDict = {1:[],2:[]}
 DTrainDict = {1:[],2:[]}
 RTrainDict = {1:[],2:[]}
@@ -92,10 +86,11 @@ def ParseTrainAndDestination(CommandDict,TrainTimesDict,CurrentTime):
 #For loop to populate MasterDict with all parsed train info
 for i in CommandDict:
     MasterDict.update({i:ParseTrainAndDestination(CommandDict[i],TrainTimesDict[i],GetCurrentTime())})
-#Populate N Train Dict
-for i in range (1,2):
-    NTrainDict.update({i:ParseTrainAndDestination(CommandDict[i],TrainTimesDict[i],GetCurrentTime())})
-for i in range (2,3):
-    DTrainDict.update({i:ParseTrainAndDestination(CommandDict[i],TrainTimesDict[i],GetCurrentTime())})
-for i in range (5,6):
-    RTrainDict.update({i:ParseTrainAndDestination(CommandDict[i],TrainTimesDict[i],GetCurrentTime())})
+# Populate individual train Dicts
+NTrainDict [1] = MasterDict [1]
+NTrainDict [2] = MasterDict [2]
+DTrainDict [1] = MasterDict[3]
+DTrainDict [2] = MasterDict [4]
+RTrainDict [1] = MasterDict[5]
+RTrainDict [2] = MasterDict[6]
+

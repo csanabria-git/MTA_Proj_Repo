@@ -104,7 +104,7 @@
   --sign-color:var(--green);
   margin:40vh auto;
   white-space:nowrap;
-  font-size:min(15vh,60px);
+  font-size:min(15vh,5px);
   background-color:var(--sign-color);
   width:min-content;
   color:white;

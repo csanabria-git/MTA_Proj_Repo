@@ -20,8 +20,9 @@ TrainTimesDict = {1:os.popen(CommandDict[1]).read(),
                   5:os.popen(CommandDict[5]).read(),
                   6:os.popen(CommandDict[6]).read(),        
                    }
-# This dict will stores a particular train's destination, arrival times, and the current time. This line is to initialize it
+# This dict will stores a particular train's destination, arrival times, and the current time. This line is to initialize it as an empty dict for now
 MasterDict = {1:[],2:[],3:[],4:[],5:[],6:[],}
+# Individual Train Dicts
 NTrainDict = {1:[],2:[]}
 DTrainDict = {1:[],2:[]}
 RTrainDict = {1:[],2:[]}

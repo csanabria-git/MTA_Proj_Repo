@@ -102,9 +102,9 @@
 }
 .street-sign{
   --sign-color:var(--green);
-  margin:40vh auto;
-  white-space:nowrap;
-  font-size:min(15vh,5px);
+  margin:1.5vh;
+  /*white-space:nowrap;*/
+  font-size:min(20vh,8.5px);
   background-color:var(--sign-color);
   width:min-content;
   color:white;
@@ -128,7 +128,7 @@
 }
 
 .inspired{
-  font-size:0.75em;
+  font-size:1.5em;
   position:absolute;
   bottom:0.2em;
   right:1vw;

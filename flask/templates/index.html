@@ -2,12 +2,12 @@
 
 <ul>
     {% for key, value in NTrains.items() %}
-        <ul><span class="subway-icon mta-yellow">{{ value.Train }}</span> <div class="street-sign">{{ value.Dst }}</div>{{ value.Train1 }} minutes  </ul>
+        <ul><span class="subway-icon mta-yellow">{{ value.Train }}</span> <span class="street-sign">{{ value.Dst }}</span>{{ value.Train1 }} minutes  </ul>
     {% endfor %}
     {% for key, value in DTrains.items() %}
-        <ul><span class="subway-icon mta-orange">{{ value.Train }}</span> {{ value.Dst }} {{ value.Train1 }} minutes  </ul>
+        <ul><span class="subway-icon mta-orange">{{ value.Train }}</span> <span class="street-sign">{{ value.Dst }}</span> {{ value.Train1 }} minutes  </ul>
     {% endfor %}
     {% for key, value in RTrains.items() %}
-        <ul><span class="subway-icon mta-yellow">{{ value.Train }}</span> {{ value.Dst }} {{ value.Train1 }} minutes  </ul>
+        <ul><span class="subway-icon mta-yellow">{{ value.Train }}</span> <span class="street-sign">{{ value.Dst }}</span> {{ value.Train1 }} minutes  </ul>
     {% endfor %}
 </ul>

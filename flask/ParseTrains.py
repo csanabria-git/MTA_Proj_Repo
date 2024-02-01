@@ -37,21 +37,21 @@ def ParseTrainAndDestination(CommandDict,TrainTimesDict,CurrentTime):
     if "stops N" in CommandDict:
         train = 'N'
         if "R36N" in CommandDict:
-            destination = "Astoria-Ditmars Blvd"
+            destination = "Astoria-Ditmars"
         if "R36S" in CommandDict:
-            destination = "ConeyIsland-Stillwell Ave"
+            destination = "ConeyIsland-Stillwell"
     if "stops D" in CommandDict:
         train = 'D'
         if "R36N" in CommandDict:
-            destination = "Norwood - 205 St"
+            destination = "Norwood - 205"
         if "R36S" in CommandDict:
-            destination = "ConeyIsland-Stillwell Ave"
+            destination = "ConeyIsland-Stillwell"
     if "stops R" in CommandDict:
         train = 'R'
         if "R36N" in CommandDict:
-            destination = "Forest Hills - 71st Av"
+            destination = "Forest Hills - 71st"
         if "R36S" in CommandDict:
-            destination = "Bay Ridge - 95 St"
+            destination = "Bay Ridge - 95th"
     #Put train times output into a variable of type string then remove spaces so its easier to parse
     TrainTimes=TrainTimesDict
     TrainTimes=TrainTimes.replace(" ", "")

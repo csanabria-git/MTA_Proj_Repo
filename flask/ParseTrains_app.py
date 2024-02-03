@@ -99,4 +99,3 @@ app = Flask(__name__)
 @app.route('/')
 def my_route():
   return render_template('index.html', NTrains=NTrainDict, DTrains=DTrainDict,RTrains=RTrainDict)
-#Next step is to figure out how to get street sign for the train destinations 

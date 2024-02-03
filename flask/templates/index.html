@@ -1,4 +1,8 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+<!-- 
+<ul><span class="subway-icon mta-yellow">{{ NTrains.1.Train }}</span> <span class="street-sign_blvd">{{NTrains.1.Dst}}</span> minutes {{NTrains.1.Train1}}</ul>
+<ul><span class="subway-icon mta-yellow">{{ NTrains.2.Train }}</span> <span class="street-sign_ave">{{NTrains.2.Dst}}</span> minutes {{NTrains.2.Train1}}</ul>
+-->
 
 <ul>
     {% for key, value in NTrains.items() %}
@@ -11,5 +15,3 @@
         <ul><span class="subway-icon mta-yellow">{{ value.Train }}</span> <span class="street-sign">{{ value.Dst }}</span> {{ value.Train1 }} minutes  </ul>
     {% endfor %}
 </ul>
-/*Need to work to get signs to show proper subscript depending on the destination, maybe create an indepent loop that reads the destinations from each of the train dicts 
-and puts them into variables here in html. Then maybe create a conditional statement to decipher what street sign to use per */

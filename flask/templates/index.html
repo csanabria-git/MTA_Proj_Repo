@@ -1,8 +1,11 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
 
-<ul><span class="subway-icon mta-yellow">{{ NTrains.1.Train }}</span> <span class="street-sign_blvd">{{NTrains.1.Dst}}</span> {{ NTrains.1.Train1 }} minutes </ul>
-<ul><span class="subway-icon mta-yellow">{{ NTrains.2.Train }}</span> <span class="street-sign_ave">{{NTrains.2.Dst}}</span> {{ NTrains.1.Train1 }} minutes </ul>
-
+<ul><span class="subway-icon mta-yellow">{{ NTrains.1.Train }}</span> <span class="street-sign_blvd">{{ NTrains.1.Dst }}</span> {{ NTrains.1.Train1 }} minutes </ul>
+<ul><span class="subway-icon mta-yellow">{{ NTrains.2.Train }}</span> <span class="street-sign_ave">{{ NTrains.2.Dst }}</span> {{ NTrains.1.Train1 }} minutes </ul>
+<ul><span class="subway-icon mta-orange">{{ DTrains.1.Train }}</span> <span class="street-sign_st">{{ DTrains.1.Dst }}</span> {{ DTrains.1.Train1 }} minutes </ul>
+<ul><span class="subway-icon mta-orange">{{ DTrains.2.Train }}</span> <span class="street-sign_ave">{{ DTrains.2.Dst }}</span> {{ DTrains.1.Train1 }} minutes </ul>
+<ul><span class="subway-icon mta-yellow">{{ RTrains.1.Train }}</span> <span class="street-sign_st">{{ RTrains.1.Dst }}</span> {{ RTrains.1.Train1 }} minutes </ul>
+<ul><span class="subway-icon mta-yellow">{{ RTrains.2.Train }}</span> <span class="street-sign_st">{{ RTrains.2.Dst }}</span> {{ RTrains.1.Train1 }} minutes </ul>
 <!-- 
 <ul>
     {% for key, value in NTrains.items() %}

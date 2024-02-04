@@ -55,10 +55,10 @@ def ParseTrainAndDestination(CommandDict,TrainTimesDict,CurrentTime):
     #Put train times output into a variable of type string then remove spaces so its easier to parse
     TrainTimes=TrainTimesDict
     TrainTimes=TrainTimes.replace(" ", "")
+
     # Parse arrival1 and 2 from TrainTimes string
     arrival1=TrainTimes[4:9]
     arrival2=TrainTimes[9:14]
-
     a1Hours = int(arrival1[0:2])
     a1Minutes = int(arrival1[3:5])
     a2Hours = int(arrival2[0:2])
@@ -79,8 +79,8 @@ def ParseTrainAndDestination(CommandDict,TrainTimesDict,CurrentTime):
                "A1":arrival1,
                "A2":arrival2,
                "CTime":CurrentTime,
-               "Train 1":FirstTrain,
-               "Train 2":SecondTrain
+               "Train1":FirstTrain,
+               "Train2":SecondTrain
                }
     return TrainDict
 #For loop to populate MasterDict with all parsed train info
@@ -93,4 +93,6 @@ DTrainDict [1] = MasterDict[3]
 DTrainDict [2] = MasterDict [4]
 RTrainDict [1] = MasterDict[5]
 RTrainDict [2] = MasterDict[6]
+
+
 

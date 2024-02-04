@@ -1,9 +1,9 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
-<!-- 
-<ul><span class="subway-icon mta-yellow">{{ NTrains.1.Train }}</span> <span class="street-sign_blvd">{{NTrains.1.Dst}}</span> minutes {{NTrains.1.Train1}}</ul>
-<ul><span class="subway-icon mta-yellow">{{ NTrains.2.Train }}</span> <span class="street-sign_ave">{{NTrains.2.Dst}}</span> minutes {{NTrains.2.Train1}}</ul>
--->
 
+<ul><span class="subway-icon mta-yellow">{{ NTrains.1.Train }}</span> <span class="street-sign_blvd">{{NTrains.1.Dst}}</span> {{ NTrains.1.Train1 }} minutes </ul>
+<ul><span class="subway-icon mta-yellow">{{ NTrains.2.Train }}</span> <span class="street-sign_ave">{{NTrains.2.Dst}}</span> {{ NTrains.1.Train1 }} minutes </ul>
+
+<!-- 
 <ul>
     {% for key, value in NTrains.items() %}
         <ul><span class="subway-icon mta-yellow">{{ value.Train }}</span> <span class="street-sign">{{ value.Dst }}</span>{{ value.Train1 }} minutes  </ul>
@@ -11,7 +11,8 @@
     {% for key, value in DTrains.items() %}
         <ul><span class="subway-icon mta-orange">{{ value.Train }}</span> <span class="street-sign">{{ value.Dst }}</span> {{ value.Train1 }} minutes  </ul>
     {% endfor %}
-    {% for key, value in RTrains.items() %}
+    {% for ktey, value in RTrains.items() %}
         <ul><span class="subway-icon mta-yellow">{{ value.Train }}</span> <span class="street-sign">{{ value.Dst }}</span> {{ value.Train1 }} minutes  </ul>
     {% endfor %}
 </ul>
+-->

@@ -20,9 +20,9 @@ TrainTimesDict = {1:os.popen(CommandDict[1]).read(),
                   5:os.popen(CommandDict[5]).read(),
                   6:os.popen(CommandDict[6]).read(),        
                    }
-# This dict will stores a particular train's destination, arrival times, and the current time. This line is to initialize it as an empty dict for now
-MasterDict = {1:[],2:[],3:[],4:[],5:[],6:[],}
-# Individual Train Dicts
+# This dict will stores a particular train's destination, arrival times, and the current time. This line is to initialize it
+#Individual Train Dicts
+MasterDict = {1:[],2:[],3:[],4:[],5:[],6:[]}
 NTrainDict = {1:[],2:[]}
 DTrainDict = {1:[],2:[]}
 RTrainDict = {1:[],2:[]}
@@ -39,13 +39,13 @@ def ParseTrainAndDestination(CommandDict,TrainTimesDict,CurrentTime):
         if "R36N" in CommandDict:
             destination = "Astoria-Ditmars"
         if "R36S" in CommandDict:
-            destination = "Coney Island-Stillwell"
+            destination = "ConeyIsland-Stillwell"
     if "stops D" in CommandDict:
         train = 'D'
         if "R36N" in CommandDict:
             destination = "Norwood - 205"
         if "R36S" in CommandDict:
-            destination = "Coney Island-Stillwell"
+            destination = "ConeyIsland-Stillwell"
     if "stops R" in CommandDict:
         train = 'R'
         if "R36N" in CommandDict:
@@ -87,12 +87,14 @@ def ParseTrainAndDestination(CommandDict,TrainTimesDict,CurrentTime):
 for i in CommandDict:
     MasterDict.update({i:ParseTrainAndDestination(CommandDict[i],TrainTimesDict[i],GetCurrentTime())})
 # Populate individual train Dicts
-NTrainDict[1] = MasterDict[1]
-NTrainDict[2] = MasterDict[2]
-DTrainDict[1] = MasterDict[3]
-DTrainDict[2] = MasterDict[4]
-RTrainDict[1] = MasterDict[5]
-RTrainDict[2] = MasterDict[6]
+NTrainDict [1] = MasterDict [1]
+NTrainDict [2] = MasterDict [2]
+DTrainDict [1] = MasterDict[3]
+DTrainDict [2] = MasterDict [4]
+RTrainDict [1] = MasterDict[5]
+RTrainDict [2] = MasterDict[6]
+
+
 #Flask web app
 from flask import Flask
 app = Flask(__name__)

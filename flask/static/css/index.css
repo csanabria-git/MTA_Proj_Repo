@@ -101,9 +101,9 @@
 .street-sign_blvd{
   --superscript:"BLVD";
   --sign-color:var(--green);
-  margin:40vh auto;
+  margin:5vh;
   white-space:nowrap;
-  font-size:min(15vh,60px);
+  font-size:min(5vh,30px);
   background-color:var(--sign-color);
   width:min-content;
   color:white;
@@ -116,9 +116,9 @@
 .street-sign_st{
   --superscript:"ST";
   --sign-color:var(--green);
-  margin:40vh auto;
+  margin:5vh;
   white-space:nowrap;
-  font-size:min(15vh,60px);
+  font-size:min(5vh,30px);
   background-color:var(--sign-color);
   width:min-content;
   color:white;
@@ -131,9 +131,9 @@
 .street-sign_ave{
   --superscript:"AVE";
   --sign-color:var(--green);
-  margin:40vh auto;
+  margin:5vh;
   white-space:nowrap;
-  font-size:min(15vh,60px);
+  font-size:min(5vh,30px);
   background-color:var(--sign-color);
   width:min-content;
   color:white;

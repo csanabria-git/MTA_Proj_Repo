@@ -1,0 +1,41 @@
+road-sign {
+  display: block;
+  width: 150px;
+  height: 150px;
+  background-color: #FFFFFF;
+  box-shadow: 10px 10px 5px #888888;
+  border: 20px solid #EE0000;
+  border-radius: 100px;
+}
+  
+speed-limit {
+  text-align: center;
+  padding-top: 20px;
+  margin: auto; /*Will center the text*/
+  color: #000000;
+  font-family: Trebuchet MS;
+  font-size: 90px;
+  font-weight: bold;
+}
+
+
+
+
+
+/* The second part of this CSS is for the gradient. This may seem quite complex as it generates some code for each browser. To create your own gradient effect use:
+http://www.colorzilla.com/gradient-editor/
+*/
+
+
+
+#plate {
+   background: #ffff00; /* Old browsers */
+background: -moz-linear-gradient(top,  #ffff00 0%, #ffff99 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffff00), color-stop(100%,#ffff66)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #ffff00 0%,#ffff99 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #ffff00 0%,#ffff99 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #ffff00 0%,#ffff99 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #ffff00 0%,#ffff99 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffff00', endColorstr='#ffff99',GradientType=0 ); /* IE6-9 */
+  
+}

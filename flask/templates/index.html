@@ -1,11 +1,15 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+<body style="background-color:rgb(1, 1, 1);"></body>
 
-<ul><span class="subway-icon mta-yellow">{{ NTrains.1.Train }}</span> <span class="street-sign_blvd">{{ NTrains.1.Dst }}</span> {{ NTrains.1.Train1 }} minutes </ul>
-<ul><span class="subway-icon mta-yellow">{{ NTrains.2.Train }}</span> <span class="street-sign_ave">{{ NTrains.2.Dst }}</span> {{ NTrains.1.Train1 }} minutes </ul>
-<ul><span class="subway-icon mta-orange">{{ DTrains.1.Train }}</span> <span class="street-sign_st">{{ DTrains.1.Dst }}</span> {{ DTrains.1.Train1 }} minutes </ul>
-<ul><span class="subway-icon mta-orange">{{ DTrains.2.Train }}</span> <span class="street-sign_ave">{{ DTrains.2.Dst }}</span> {{ DTrains.1.Train1 }} minutes </ul>
-<ul><span class="subway-icon mta-yellow">{{ RTrains.1.Train }}</span> <span class="street-sign_st">{{ RTrains.1.Dst }}</span> {{ RTrains.1.Train1 }} minutes </ul>
-<ul><span class="subway-icon mta-yellow">{{ RTrains.2.Train }}</span> <span class="street-sign_st">{{ RTrains.2.Dst }}</span> {{ RTrains.1.Train1 }} minutes </ul>
+<ul><span class="subway-icon mta-yellow">{{ NTrains.1.Train }}</span> <span class="street-sign_blvd">{{ NTrains.1.Dst }}</span> <span class="mins-sign">{{ NTrains.1.Train1 }} minutes </span> </ul>
+<ul><span class="subway-icon mta-yellow">{{ NTrains.2.Train }}</span> <span class="street-sign_ave">{{ NTrains.2.Dst }}</span> <span class="mins-sign">{{ NTrains.2.Train1 }} minutes </span> </ul>
+<ul><span class="subway-icon mta-orange">{{ DTrains.1.Train }}</span> <span class="street-sign_st">{{ DTrains.1.Dst }}</span> <span class="mins-sign">{{ DTrains.1.Train1 }} minutes </span> </ul>
+<ul><span class="subway-icon mta-orange">{{ DTrains.2.Train }}</span> <span class="street-sign_ave">{{ DTrains.2.Dst }}</span> <span class="mins-sign">{{ DTrains.2.Train1 }} minutes </span> </ul>
+<ul><span class="subway-icon mta-yellow">{{ RTrains.1.Train }}</span> <span class="street-sign_st">{{ RTrains.1.Dst }}</span> <span class="mins-sign">{{ RTrains.1.Train1 }} minutes </span> </ul>
+<ul><span class="subway-icon mta-yellow">{{ RTrains.2.Train }}</span> <span class="street-sign_st">{{ RTrains.2.Dst }}</span> <span class="mins-sign">{{ RTrains.2.Train1 }} minutes </span> </ul>
+<ul><span class="subway-icon mta-blue">B63</span> <span class="street-sign_1">PIER 6</span> <span class="mins-sign">{{ B63.Pier6.0 }} minutes </span><span class="mins-sign">{{ B63.Pier6.1 }} minutes </span> </ul>
+<ul><span class="subway-icon mta-blue">B63</span> <span class="street-sign_1">BAY RIDGE</span> <span class="mins-sign">{{ B63.BayRidge.0 }} minutes </span><span class="mins-sign">{{ B63.BayRidge.1 }} minutes </span> </ul>
+
 <!-- 
 <ul>
     {% for key, value in NTrains.items() %}

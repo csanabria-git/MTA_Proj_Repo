@@ -1,0 +1,60 @@
+<html>
+<head>
+<style>
+   .arrow-container {
+      display: flex;
+      align-items: center;
+   }
+   .arrow {
+      display: inline-block;
+      margin-right: 30px;
+      width: 15px;
+      height: 15px;
+      border-top: 2px solid #000;
+      border-right: 2px solid #000;
+   }
+   .right-arrow {
+      transform: rotate(45deg);
+   }
+   .left-arrow {
+      transform: rotate(-135deg);
+   }
+   .up-arrow {
+      transform: rotate(-45deg);
+   }
+   .down-arrow {
+      transform: rotate(135deg);
+   }
+   .top-narrow-arrow {
+   transform: rotate(-45deg) skew(-15deg, -15deg);
+   }
+   .top-wide-arrow {
+   transform: rotate(-45deg) skew(7deg, 7deg);
+   }
+   .top-left-arrow {
+   transform: rotate(-90deg) skew(-10deg, -10deg);
+   }
+   .top-right-arrow {
+   transform: rotate(0) skew(-10deg, -10deg);
+   }
+   .bottom-left-arrow {
+   transform: rotate(180deg) skew(-10deg, -10deg);
+   }
+   .bottom-right-arrow {
+   transform: rotate(90deg) skew(-10deg, -10deg);
+   }
+</style>
+</head>
+<body>
+   <p class="arrow-container"><span class="arrow right-arrow"></span> - This arrow points to the right.</p>
+   <p class="arrow-container"><span class="arrow left-arrow"></span> - This arrow points to the left.</p>
+   <p class="arrow-container"><span class="arrow up-arrow"></span> - This arrow points upwards.</p>
+   <p class="arrow-container"><span class="arrow down-arrow"></span> - This arrow points downwards.</p>
+   <p class="arrow-container"><span class="arrow top-narrow-arrow"></span> - This arrow points top and is narrow.</p>
+   <p class="arrow-container"><span class="arrow top-wide-arrow"></span> - This arrow points top and is wide.</p>
+   <p class="arrow-container"><span class="arrow top-left-arrow"></span> - This arrow points top left.</p>
+   <p class="arrow-container"><span class="arrow top-right-arrow"></span> - This arrow points top right.</p>
+   <p class="arrow-container"><span class="arrow bottom-left-arrow"></span> - This arrow points bottom left.</p>
+   <p class="arrow-container"><span class="arrow bottom-right-arrow"></span> - This arrow points bottom right.</p>
+</body>
+</html>
